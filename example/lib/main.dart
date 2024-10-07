@@ -61,11 +61,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Container(
           color: Colors.red,
-          width: 425,
-          height: 425,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           child: TreeMapLayout(
             duration: Duration(milliseconds: 500),
             tile: Binary(),
@@ -78,14 +79,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.amber,
                 ),
               ),
-              TreeNode.node(
-                padding: EdgeInsets.all(20),
-                margin: EdgeInsets.all(5),
-                children: [TreeNode.leaf(value: 15)],
-                options: TreeNodeOptions(
-                  color: Colors.blue,
-                ),
-              ),
+              // TreeNode.node(
+              //   padding: EdgeInsets.all(20),
+              //   margin: EdgeInsets.all(5),
+              //   children: [TreeNode.leaf(value: 15)],
+              //   options: TreeNodeOptions(
+              //     color: Colors.blue,
+              //   ),
+              // ),
             ],
           ),
         ),
