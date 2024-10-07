@@ -28,7 +28,6 @@ class TreeNode implements TreeNodeBase {
 
   TreeNode.node({
     required this.children,
-    WidgetBuilder? builder,
     this.margin = const EdgeInsets.all(0),
     this.padding = const EdgeInsets.all(0),
     this.options,
@@ -41,8 +40,6 @@ class TreeNode implements TreeNodeBase {
 
   TreeNode.leaf({
     required num value,
-    WidgetBuilder? builder,
-    WidgetBuilder? emptyBuilder,
     this.margin = const EdgeInsets.all(0),
     this.padding = const EdgeInsets.all(0),
     this.options,
