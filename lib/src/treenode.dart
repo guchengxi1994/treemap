@@ -43,11 +43,18 @@ class TreeNode implements TreeNodeBase {
   TreeNode.leaf({
     required num value,
     WidgetBuilder? builder,
+    WidgetBuilder? emptyBuilder,
     this.margin = const EdgeInsets.all(0),
     this.padding = const EdgeInsets.all(0),
     this.options,
-  })  : assert(value > 0),
-        _value = value;
+  }) {
+    if (value <= 0) {
+      value = 1;
+      this.builder = emptyBuilder;
+    } else {
+      _value = value;
+    }
+  }
 
   int get depth {
     int depth = 0;
