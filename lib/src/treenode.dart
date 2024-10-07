@@ -45,7 +45,7 @@ class TreeNode implements TreeNodeBase {
     this.options,
   }) {
     if (value <= 0) {
-      value = 1;
+      _value = 1;
     } else {
       _value = value;
     }
