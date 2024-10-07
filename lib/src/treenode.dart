@@ -7,7 +7,6 @@ class TreeNode implements TreeNodeBase {
   TreeNodeOptions? options;
   EdgeInsets margin;
   EdgeInsets padding;
-  WidgetBuilder? builder;
   TreeNode? parent;
   double top = 0;
   double left = 0;
@@ -50,7 +49,6 @@ class TreeNode implements TreeNodeBase {
   }) {
     if (value <= 0) {
       value = 1;
-      this.builder = emptyBuilder;
     } else {
       _value = value;
     }

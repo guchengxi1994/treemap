@@ -31,23 +31,23 @@ class TreeMapLayout extends StatelessWidget {
           children: treemap.leaves.fold(
             [],
             (result, node) {
-              final child = node.builder != null
-                  ? node.builder!(context)
-                  : InkWell(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: node.options?.color ??
-                              Theme.of(context).primaryColor,
-                          border: node.options?.border ??
-                              Border.all(
-                                width: 1,
-                                color: Colors.black,
-                              ),
+              final child = InkWell(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color:
+                        node.options?.color ?? Theme.of(context).primaryColor,
+                    border: node.options?.border ??
+                        Border.all(
+                          width: 1,
+                          color: Colors.black,
                         ),
-                        child: node.options?.child,
-                      ),
-                      onTap: node.options?.onTap,
-                    );
+                  ),
+                  child: Center(
+                    child: node.options?.child,
+                  ),
+                ),
+                onTap: node.options?.onTap,
+              );
 
               return result
                 ..add(
