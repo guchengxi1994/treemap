@@ -31,21 +31,44 @@ class TreeMapLayout extends StatelessWidget {
           children: treemap.leaves.fold(
             [],
             (result, node) {
-              final child = InkWell(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color:
-                        node.options?.color ?? Theme.of(context).primaryColor,
-                    border: node.options?.border ??
-                        Border.all(
-                          width: 1,
-                          color: Colors.black,
-                        ),
-                  ),
-                  child: Center(
-                    child: node.options?.child,
+              // final child = InkWell(
+              //   child: Container(
+              //     decoration: BoxDecoration(
+              //       color:
+              //           node.options?.color ?? Theme.of(context).primaryColor,
+              //       border: node.options?.border ??
+              //           Border.all(
+              //             width: 1,
+              //             color: Colors.black,
+              //           ),
+              //     ),
+              //     child: Center(
+              //       child: node.options?.child,
+              //     ),
+              //   ),
+              //   onTap: node.options?.onTap,
+              // );
+              final child = GestureDetector(
+                child: MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color:
+                          node.options?.color ?? Theme.of(context).primaryColor,
+                      border: node.options?.border ??
+                          Border.all(
+                            width: 1,
+                            color: Colors.black,
+                          ),
+                    ),
+                    child: Center(
+                      child: node.options?.child,
+                    ),
                   ),
                 ),
+                onSecondaryTapDown: (details) {
+                  node.options?.onSecondaryTapDown?.call(details);
+                },
                 onTap: node.options?.onTap,
               );
 

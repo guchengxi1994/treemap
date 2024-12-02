@@ -93,11 +93,13 @@ class TreeNodeOptions {
   final BoxBorder? border;
   final Widget? child;
   GestureTapCallback? onTap;
+  GestureTapDownCallback? onSecondaryTapDown;
 
   TreeNodeOptions({
     this.color,
     this.border,
     this.child,
     this.onTap,
+    this.onSecondaryTapDown,
   });
 }
